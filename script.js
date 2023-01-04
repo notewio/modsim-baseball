@@ -51,7 +51,6 @@ const orbitControls = new OrbitControls(camera, renderer.domElement);
 
 // Ball & arrow to change direction
 const directionHelper = new THREE.ArrowHelper(direction, baseball.position, 0.5, 0xff2000);
-directionHelper.position.copy(direction);
 scene.add(directionHelper);
 
 const directionController = new THREE.Mesh(
@@ -60,6 +59,7 @@ const directionController = new THREE.Mesh(
 );
 directionController.material.transparent = true;
 directionController.material.opacity = 0.5;
+directionController.position.copy(direction);
 scene.add(directionController)
 
 const dragControls = new DragControls([directionController], camera, renderer.domElement);

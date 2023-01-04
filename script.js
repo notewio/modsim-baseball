@@ -133,7 +133,7 @@ function step() {
   orbitControls.target.copy(baseball.position);
   orbitControls.update();
 
-  if (baseball.position.y <= 0) {
+  if (baseball.position.y < 0) {
     animateEnd();
   }
 }

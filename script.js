@@ -51,6 +51,7 @@ const orbitControls = new OrbitControls(camera, renderer.domElement);
 
 // Ball & arrow to change direction
 const directionHelper = new THREE.ArrowHelper(direction, baseball.position, 0.5, 0xff2000);
+directionHelper.position.copy(direction);
 scene.add(directionHelper);
 
 const directionController = new THREE.Mesh(

@@ -71,7 +71,7 @@ dragControls.addEventListener("dragend", e => {
 
 
 
-// ======== Model render & step ========
+// ======== Rendering ========
 
 // Set up geometry to display trajectory when finished
 const pathGeometry = new THREE.BufferGeometry();
@@ -92,9 +92,14 @@ function render() {
 }
 render();
 
-// Physics model begin simulation
+
+
+// ======== Physics model ========
+
 let simulationInterval;
 const dt = 16;
+
+// Reset & begin simulation
 function start() {
   clearInterval(simulationInterval);
 
@@ -176,11 +181,11 @@ const options = {
 };
 
 gui.add(options, "start");
-gui.add(options, "speed");
-gui.add(options, "rho");
+gui.add(options, "speed").name("throw speed (m^2)");
+gui.add(options, "rho").name("rho (kg/m^3)");
 gui.add(options, "C_d");
-gui.add(options, "mass");
-gui.add(options, "area");
+gui.add(options, "mass").name("mass (kg)");
+gui.add(options, "area").name("frontal area (m^2)");
 gui.add(baseball.position, "x").listen().disable();
 gui.add(baseball.position, "y").listen().disable();
 gui.add(baseball.position, "z").listen().disable();
